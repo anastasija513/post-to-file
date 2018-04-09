@@ -46,7 +46,7 @@ object Main extends App {
 
   //start, listen to requests, shutdown
   val bindingFuture = Http().bindAndHandle(route, host, port)
-  println(s"Send post message to http://$host:$port/store...")
+  println(s"Send POST request to http://$host:$port/store...")
   println(s"Push enter for stop service")
   StdIn.readLine()
 

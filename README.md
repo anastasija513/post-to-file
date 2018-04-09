@@ -1,21 +1,21 @@
 ## post-to-file
 
-### Инструкция по применению=) 
+### Инструкция по применению
 
 
 #### Запуск через sbt 
-   1. Для запуска необходимо установить sbt 1.1.1+
+   1. Установить sbt 1.1.1+
    2. Из корня проекта выполнить команду sbt run
    3. После сборки и запуска проекта(в терминале видим сообщения:
    Send post message to http://localhost:3030/store...
-   Push enter for stop service) можно отправлять запросы.
+   Push enter for stop service) отправляем запросы.
    4. Пример:
    ```
-   curl  -d "the first message" -X POST http://localhost:3030/store
+   curl -d "the first message" -X POST http://localhost:3030/store
    ```
-   - в директории /tmp создасться файл outputFIle.txt с сообщением the first message, 
+   - в директории /tmp создастся файл outputFIle.txt с сообщением 'the first message', 
    ```
-   curl  -d "второе сообщение" -X POST http://localhost:3030/store 
+   curl -d "второе сообщение" -X POST http://localhost:3030/store 
    ```
    - в файл добавляется запись 'второе сообщение'
   
@@ -24,7 +24,7 @@
    
 #### Запуск в Docker контейнере
    1. Установить Docker
-   1. В reference.conf прописать host = "0.0.0.0"
+   1. В reference.conf прописать host = "0.0.0.0" вместо
    https://github.com/anastasija513/post-to-file-test/blob/master/src/main/resources/reference.conf#L3
    2. Из корня проекта запускаем build:      
       ```
@@ -34,11 +34,12 @@
       ```
       docker run -p 3030:3030 -t -i post-to-file:v1
       ```
-   4. Отправляем с хост машины запросы
+   4. Отправляем с хост машины запросы.
    5. Файл пишется в volume:
    
    Пример:
-   На хост машине файл лежит в директории
+   
+   На хосте файл лежит в директории
     /var/lib/docker/vfs/dir/e761f8e336fa571488d67d1a5233c4be99312d0c899a03853d422231838af1dd
    ```
    docker ps
@@ -55,13 +56,14 @@
        },
    .............    
    ```
-   ```
+  
    В контейнере соответственно:
+   ```
    docker exec -t -i 92b8b7ae7679 bash
    root@92b8b7ae7679:/Main# cd /tmp
    root@92b8b7ae7679:/tmp# cat outputFile.txt 
-   some\tdata\texample1 
-   some\tdata\texample2 
+   the first message
+   второе сообщение
    ```
    
    
