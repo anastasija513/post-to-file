@@ -15,9 +15,9 @@ object Main extends App {
 
   val config = ConfigFactory.load()
 
-  val host   = config.getString("host")
-  val port   = config.getInt("port")
-  val fileName = new File(config.getString("filename"))
+  val host   = config.getString("test.host")
+  val port   = config.getInt("test.port")
+  val fileName = new File(config.getString("test.filename"))
 
   implicit val system = ActorSystem("root")
   implicit val materializer = ActorMaterializer()
