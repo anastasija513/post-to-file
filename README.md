@@ -7,7 +7,7 @@
    1. Установить sbt 1.1.1+
    2. Из корня проекта выполнить команду sbt run
    3. После сборки и запуска проекта(в терминале видим сообщения:
-   Send post message to http://localhost:3030/store...
+   Send POST request to http://localhost:3030/store...
    Push enter for stop service) отправляем запросы.
    4. Пример:
    ```
