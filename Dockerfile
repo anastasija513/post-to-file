@@ -1,4 +1,5 @@
 FROM openjdk:8u151
+
 VOLUME /tmp
 
 ADD . /Main
@@ -17,8 +18,5 @@ RUN \
   sbt sbtVersion
 
 EXPOSE 3030
-
-#CMD  sbt run
-ENV JAVA_OPTS=""
 
 ENTRYPOINT [ "sh", "-c", "sbt run" ]

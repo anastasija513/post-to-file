@@ -17,7 +17,7 @@ object Main extends App {
 
   val host   = config.getString("test.host")
   val port   = config.getInt("test.port")
-  val fileName = new File(config.getString("test.filename"))
+  val filePath = new File(config.getString("test.filepath"))
 
   implicit val system = ActorSystem("root")
   implicit val materializer = ActorMaterializer()
@@ -28,7 +28,7 @@ object Main extends App {
       post {
         entity(as[Array[Byte]]) { message ⇒
           try {
-            val fop = new FileOutputStream(fileName, true)
+            val fop = new FileOutputStream(filePath, true)
             fop.write(message)
             fop.write("\n".getBytes)
             fop.flush()
