@@ -15,7 +15,7 @@ RUN \
 WORKDIR /Main
 ADD . /Main
 
-VOLUME["/files"]
+VOLUME ["/files"]
 
 EXPOSE 3030
 
