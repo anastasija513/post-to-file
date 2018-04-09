@@ -1,4 +1,8 @@
 FROM openjdk:8u151
+VOLUME /tmp
+
+ADD . /Main
+WORKDIR /Main
 
 ENV SBT_VERSION 1.1.1
 
@@ -12,11 +16,9 @@ RUN \
   apt-get install sbt && \
   sbt sbtVersion
 
-WORKDIR /Main
-ADD . /Main
-
-VOLUME ["/files"]
-
 EXPOSE 3030
 
-CMD  sbt run
+#CMD  sbt run
+ENV JAVA_OPTS=""
+
+ENTRYPOINT [ "sh", "-c", "sbt run" ]
