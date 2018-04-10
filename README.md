@@ -1,28 +1,28 @@
 ## post-to-file
 
-### Инструкция по применению
+### Инструкция по запуску
 
 
-#### Запуск через sbt 
+#### 1) Запуск через sbt 
    1. Установить sbt 1.1.1+
-   2. Из корня проекта выполнить команду sbt run
+   2. В терминале из корня проекта выполнить команду `sbt run`
    3. После сборки и запуска проекта(в терминале видим сообщения:
    Send POST request to http://localhost:3030/store...
    Push enter for stop service) отправляем запросы.
    4. Пример:
    ```
-   curl -d "the first message" -X POST http://localhost:3030/store
+   curl -d "I'm the first message" -X POST http://localhost:3030/store
    ```
-   - в директории /tmp создастся файл outputFIle.txt с сообщением 'the first message', 
+   - в директории /tmp создастся файл outputFIle.txt с сообщением 'I'm the first message', 
    ```
-   curl -d "второе сообщение" -X POST http://localhost:3030/store 
+   curl -d "я второе сообщение" -X POST http://localhost:3030/store 
    ```
-   - в файл добавляется запись 'второе сообщение'
+   - в файл добавляется запись 'я второе сообщение'
   
    5. Для остановки сервиса нажать enter
    
    
-#### Запуск в Docker контейнере
+#### 2)Запуск в Docker контейнере
    1. Установить Docker
    1. В reference.conf прописать host = "0.0.0.0" вместо
    https://github.com/anastasija513/post-to-file-test/blob/master/src/main/resources/reference.conf#L3
@@ -34,7 +34,7 @@
       ```
       docker run -p 3030:3030 -t -i post-to-file:v1
       ```
-   4. Отправляем с хост машины запросы.
+   4. Отправляем с хост машины запросы(аналогично пукнту 1) )
    5. Файл пишется в volume:
    
    Пример:
